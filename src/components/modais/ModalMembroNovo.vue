@@ -23,7 +23,7 @@
             class="form-control"
           />
         </div>
-        <button class="btnPesquisa" @click="searchMembros">
+        <button class="btnPesquisa" @click="searchMembros()">
           <SvgIcon class="icon" type="mdi" :path="path" />
         </button>
       </div>
@@ -218,7 +218,7 @@
       },
       async searchMembros() {
         if(this.filterNome || this.filterEmail){
-          await postBuscarMembro(this.filterNome, this.filterEmail, this.IdProjeto)
+          await postBuscarMembro(this.filterNome, this.filterEmail)
           .then(response => {
             this.membros = response.data;
             this.currentPage = 1;

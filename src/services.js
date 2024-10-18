@@ -79,16 +79,18 @@ export const postPercurso = async (nomePercurso, idProjeto, dataInicial, dataFin
 
 export const postMembro = async (idProjeto, idUsuario) => {
   try {
-    await api.post('/projeto/add-membro', { idProjeto, idUsuario });
+    const response = await api.post('/projeto/add-membro', { idProjeto, idUsuario });
+    return response;
   } catch (error) {
     console.error('Erro ao registrar usuário:', error.message);
     throw error;
   }
 };
 
-export const postBuscarMembro = async (nome, email, IdProjeto) => {
+export const postBuscarMembro = async (nome, email) => {
   try {
-    await api.post('/busca-membros', { nome, email, IdProjeto });
+    const response = await api.post('/busca-membros', { nome, email});
+    return response;
   } catch (error) {
     console.error('Erro ao registrar usuário:', error.message);
     throw error;
